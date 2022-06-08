@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <title>Alimentos Santiago | {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="color_navBar">
+        <div class="navBarSup1 d-flex align-items-center text-white">
+            <i class="fa-solid fa-user"></i>
+            <a class="text-light" href="#"> Iniciar Sesion</a>/
+            <a class="text-light" href="#"> Registrarse</a>
+        </div>
+        <h1 class="titulo">Alimentos Santiago</h1>
+        <div class="contenedor">
+            <div class="navBarSup2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+            </div>
+    
+            <div class="navBarSup3">
+                <a href="#" class="text-light d-flex">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Carrito $0
+                </a>
+                
+            </div>
+        </div>
+        <!--NavBar Superior Fin-->
+        <div class="navBarInfBorde">
+        <!--Navbar inferior inicio-->
+        <nav class="navbar navbar-expand-lg navbar-light background-color:white">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <div class="centrarTexto">
+                            <p><a href="{% url 'home' %}">Home</a></p>
+                            <p><a href="#">Link</a></p>
+                            <p><a href="#">Link</a></p>
+                            <p><a href="#">Link</a></p>
+                            <p><a href="#">Link</a></p>
+                            <p><a href="{% url 'proveedores' %}">Proveedores</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>   
+    </div> 
+</header>
+    <!--Navbar inferior Final-->
+
+<!-- Contenido principal -->
+{% block content %}{% endblock %}
+<!-- Fin contenido principal -->
+
+    <footer class="d-flex justify-content-center align-items-end">
+        <i class="fa-solid fa-copyright"></i>
+        <h5>Alimentos Santiago</h5>
+    </footer>
+    <script src="{% static 'core/js/fontawsome.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

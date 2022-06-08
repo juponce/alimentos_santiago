@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Proveedor
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="container">
+        <div class="row contenedorProveedor">
+            <!-- Inicio Tarjeta -->
+            {% for i in proveedor %}
+            <div class="col-md-4">
+                <div class="cuadroProveedor">
+                    <div class="headerProveedor">
+                    <i class="fa-solid fa-user iconoProveedor"></i>
+                    <h4>{{ i.nombreProveedor }}</h4>
+                </div>
+                <div class="linea"></div>
+                
+    
+                <div class="bodyProveedor">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>Numero Contacto: +56{{ i.telefono }}</p>
+                </div>
+    
+                <div class="bodyProveedor">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>Correo Electronico: {{ i.correoElectronico }}</p>
+                </div>
+    
+                <div class="bodyProveedor">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Direccion: {{ i.direccion }}, {{ i.comuna.nombreComuna }}, {{ i.comuna.region.nombreRegion }}</p>
+                </div>
+                <div class="linea"></div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'productos' i.idProveedor %}"><button class="botonProveedor1">Ver Productos</button></a>
+    
+                    <a href="{% url 'admin:index' %}" class="adebotonProveedor2"><button class="botonProveedor2">Editar</button></a>
+                </div>
+            </div>
+            </div>
+            <!-- Fin Tarjeta -->
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

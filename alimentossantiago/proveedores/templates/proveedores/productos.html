@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Proveedor
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="column">
+        <div class="contenedorBusqueda">
+        <p>Nombre Proveedor</p> 
+    </div>
+    <div class="contenedorBusqueda2">
+        <input class="barraBusqueda" type="search" placeholder="Buscar..." aria-label="Buscar"> 
+
+        <div class="dropdown">
+            <button class="botonDrop dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Tipo        
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+<div class="container">
+    <div class="row contenedorProductos">
+        {% csrf_token %}
+        {% for i in productos %}
+        {% for producto in i.producto.all %}
+        <div class="col-md-3">
+            <div class="card">
+                <a href="{% url 'admin:index' %}"><div class="botonEditar">
+                <i class="fa-solid fa-pencil"></i>
+                Editar</div></a>
+                <div class="imgProductos">
+                    <img class="card-img-top" src="{{ producto.imagen.url }}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombreProducto }}</h5>
+                    <p class="card-text">{{ producto.descripcion }}</p>
+                    <div class="d-flex flex-column">
+                        <div class="linea"></div>
+                        <p1>Tipo: {{ producto.tipoProducto }}</p1>
+                        <p1>Precio: ${{ producto.precio }}</p1>
+                    </div>
+                </div>  <!--CARD-->
+            </div>
+        </div>  <!--CARD BODY-->
+        {% endfor %}
+        {% endfor %}
+    </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
+
