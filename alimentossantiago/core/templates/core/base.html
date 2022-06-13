@@ -13,8 +13,13 @@
     <header class="color_navBar">
         <div class="navBarSup1 d-flex align-items-center text-white">
             <i class="fa-solid fa-user"></i>
-            <a class="text-light" href="#"> Iniciar Sesion</a>/
-            <a class="text-light" href="#"> Registrarse</a>
+            {% if request.user.is_authenticated %}
+            <a class="text-light text-decoration-none" href="{% url 'home' %}"> Perfil</a>/
+            <a class="text-light text-decoration-none" href="{% url 'logout' %}"> Cerrar Sesión</a>
+            {% else %}
+            <a class="text-light text-decoration-none" href="{% url 'login' %}"> Iniciar Sesión</a>/
+            <a class="text-light text-decoration-none" href="{% url 'signup' %}"> Registrarse</a>
+            {% endif %}
         </div>
         <h1 class="titulo">Alimentos Santiago</h1>
         <div class="contenedor">
@@ -24,7 +29,7 @@
             </div>
     
             <div class="navBarSup3">
-                <a href="#" class="text-light d-flex">
+                <a href="#" class="text-light d-flex text-decoration-none">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Carrito $0
                 </a>
@@ -67,5 +72,6 @@
     </footer>
     <script src="{% static 'core/js/fontawsome.js' %}"></script>
     <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'core/js/script.js' %}"></script>
 </body>
 </html>
