@@ -12,7 +12,6 @@ body{
     justify-content: center;
     flex-direction: column; */
     min-height: 100vh;
-   
 }
 
 
@@ -209,7 +208,7 @@ body{
 /*Inicio de Sesion*/
 
 .inicio-sesion-margen {
-    margin-bottom: 92px;
+    margin-bottom: 111px;
 }
 
 .tituloForm2{
@@ -376,8 +375,6 @@ footer {
 footer i{
     font-size: 3vh;
     margin-bottom: 1vh;
-  
-    
 }
 
 .card-body{
@@ -421,3 +418,16 @@ footer i{
     font-size: 1.3vh;
 }
 
+.error {
+    color: red;
+    margin-left: 20px;
+}
+
+.exito {
+    color: green;
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+}

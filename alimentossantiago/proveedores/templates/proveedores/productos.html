@@ -6,9 +6,10 @@ Proveedor
 
 {% block content %}
     {% load static %}
+    {% for i in productos %}
     <div class="column">
         <div class="contenedorBusqueda">
-        <p>Nombre Proveedor</p> 
+        <p>{{ i.nombreProveedor }}</p> 
     </div>
     <div class="contenedorBusqueda2">
         <input class="barraBusqueda" type="search" placeholder="Buscar..." aria-label="Buscar"> 
@@ -29,7 +30,6 @@ Proveedor
 <div class="container">
     <div class="row contenedorProductos">
         {% csrf_token %}
-        {% for i in productos %}
         {% for producto in i.producto.all %}
         <div class="col-md-3">
             <div class="card">

@@ -64,7 +64,7 @@ class Proveedor(models.Model):
     producto = models.ManyToManyField(Producto, verbose_name='Productos')
 
     class Meta:
-        verbose_name = 'Proveedor'
+        verbose_name = 'Proveedor' 
         verbose_name_plural = 'Proveedores'
 
     def __str__(self):

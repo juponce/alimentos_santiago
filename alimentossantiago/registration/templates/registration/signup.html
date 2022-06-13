@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-4"></div> 
+        <!--Inicio Formulario-->
+        <div class="col-md-5">
+        <div class="contenedorFormulario">
+                <form action="" method="POST">{% csrf_token %}
+                    <h1 class="tituloForm1">Registrate</h1>
+
+                    <!--Nombre-Apellido-->
+            <div class="contenedorP1"> 
+                <div class="form1">
+                    <label for="Nombre">Nombre</label>
+                    <br>
+                    <input type="text" id="nombre" name="Nombre">
+                </div>
+                <div class="form2">
+                    <label for="Nombre">Apellido</label>
+                    <br>
+                    <input type="text" id="nombre" name="Nombre">
+                </div>
+            </div>
+
+                <!--Nombre Usuario-->
+            <div class="form3">
+            <label for="username">Nombre de Usuario</label>
+            <br>
+            <input type="text" id="id_username" name="username" maxlength="150" autofocus required>
+            </div>
+
+                <!--Contrasena-->
+            <div class="form3">
+                <label for="id_password1">Contraseña</label>
+                <br>
+                <input type="password" id="id_password1" name="password1" class="form4" required>
+                </div>
+
+                <!--Confirmar Contraseña-->
+                <div class="form3">
+                    <label for="id_password2">Confirmar Contraseña</label>
+                    <br>
+                    <input type="password" id="id_password2" name="password2" class="form4" required>
+                    </div>
+
+                    <!--Checkbox-->
+                    <div class="contCheck">
+                        <p> <input type="checkbox"> Acepto Terminos y Condiciones</p>
+            </div>
+            <!--Boton Registro-->
+            <button type="submit" class="button1">Registrarse</button>
+        </div>
+
+        </div>              
+        </form>
+        <!--Fin Formulario-->
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}
