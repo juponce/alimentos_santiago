@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %} {% block title %} Productos {% endblock %}
+{%block content %} {% load static %}
+<div class="column">
+    <div class="contenedorBusqueda">
+        <p>Productos</p>
+    </div>
+    <div class="contenedorBusqueda2">
+        <input
+            class="barraBusqueda"
+            type="search"
+            placeholder="Buscar..."
+            aria-label="Buscar"
+        />
+
+        <div class="dropdown">
+            <button
+                class="botonDrop dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+            >
+                Tipo
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row contenedorProductos">
+            {% csrf_token %} {% for i in productos %}
+            <div class="col-md-3">
+                <div class="card">
+                    <a href="{% url 'admin:index' %}"
+                        ><div class="botonEditar">
+                            <i class="fa-solid fa-pencil"></i>
+                            Editar
+                        </div></a
+                    >
+                    <div class="imgProductos">
+                        <img
+                            class="card-img-top"
+                            src="{{ i.imagen.url }}"
+                            alt="Card image cap"
+                        />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.nombreProducto }}</h5>
+                        <p class="card-text">{{ i.descripcion }}</p>
+                        <div class="d-flex flex-column">
+                            <div class="linea"></div>
+                            <!-- <p1>Categoria: {{ i.categoria }}</p1> -->
+                            <p1>Precio: ${{ i.precio }}</p1>
+                            <form style="display: none"></form>
+                            <button type="submit" class="button2">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                    <!--CARD-->
+                </div>
+            </div>
+            <!--CARD BODY-->
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

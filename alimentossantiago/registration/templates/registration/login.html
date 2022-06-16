@@ -4,12 +4,11 @@
 {% block content %}
 <main class="inicio-sesion-margen">
     <div class="container">
-    <div class="row">
-        <div class="col-md-4"></div> 
+    <div class="row justify-content-center">
         <!--Inicio Formulario-->
-        <div class="col-md-5 mb-4">
+        <div class="col-md-5 my-5">
         <div class="contenedorFormularioInicio">
-                <form action="" method="POST"> {% csrf_token %}
+                <form class="d-flex flex-column" action="" method="POST"> {% csrf_token %}
                     <h2 class="tituloForm2 h1">Iniciar Sesion</h2>            
 
                 <!--Nombre Usuario-->
@@ -38,7 +37,6 @@
                 {% endif %}
                 </form>
                 <!--Fin Formulario-->
-                <div class="col-md-4"></div>
         </div>
         </div>
     </div>
