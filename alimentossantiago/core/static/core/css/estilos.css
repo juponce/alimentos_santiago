@@ -137,19 +137,17 @@ body{
 
 
 .contenedorFormulario{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    margin-top: 3vh;
+    margin-top: 3vh; */
     background-color: var(--color_primario);
-    width: 60vh;
-    height: 67vh;
     color:white;
-    
+    /* padding-bottom: 20px; */
 }
 
 .contenedorFormulario label{
-    font-size: 3vh;
-    margin-top: 2vh;
+    /* font-size: 3vh;
+    margin-top: 2vh; */
 }
 
 .tituloForm1{
@@ -159,47 +157,47 @@ body{
 .contenedorP1{
     display: flex;
     flex-direction: row;
-    width: 60vh;
-    height: 10vh;
-    
+    /* width: 60vh;
+    height: 10vh; */
 }
 
 .form1{
-    justify-content: left;
-    padding-left: 3vh;
-
+    /* justify-content: left;
+    padding-left: 3vh; */
+    width: 45%;
 }
 
 .form2{
-    justify-content: right;
-    padding-left: 3vh;
+    /* justify-content: right;
+    padding-left: 3vh; */
+    width: 45%;
 }
 
 .form3{
-    justify-content: left;
-    padding-left: 3vh;
-    width: 53vh;
+    /* justify-content: left;
+    padding-left: 3vh; */
+}
 
+.form1 input, .form2 input, .form3 input {
+    width: 100%;
 }
 
 .form4{
-    justify-content: left;
-    width: 53vh;
+    /* justify-content: left;
+    width: 53vh; */
 }
 
 .contCheck{
-    
-    padding-top: 3vh;
-    padding-left: 3vh;
+    /* padding-top: 3vh;
+    padding-left: 3vh; */
     font-size: 2.5vh;
 
 }
 
 .button1{
     justify-content: center;
-    font-size: 3vh;
+    font-size: 24px;
     padding: 1vh 5vh 1vh 5vh;
-    margin-left: 17vh;
     color: var(--blanco);
     background-color: var(--color_secundario);
 }
@@ -421,6 +419,7 @@ footer i{
 .error {
     color: red;
     margin-left: 20px;
+    padding-top: 10px;
 }
 
 .exito {
