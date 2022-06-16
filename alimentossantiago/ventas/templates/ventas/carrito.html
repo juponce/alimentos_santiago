@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Carrito
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+  <div class="container">
+
+    <div class="tituloCarrito">
+    <p>Carrito de compras</p>
+  </div>
+    <table class="table tablaProducto">
+      <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Producto 1</th>
+          <td>$10000</td>
+
+          <td>
+            <select class="selectpicker remove-example">
+              <option value="Mustard">1</option>
+              <option value="Ketchup">2</option>
+              <option value="Relish">3</option>
+        </td>
+
+          <td>$10000</td>
+          <td><button class="btn-borrar"><i class="fa-solid fa-trash-can"></i></button></td>  
+
+        </tr>
+        <tr>
+          <th scope="row">Producto 2</th>
+          <td>$10000</td>
+
+          <td>
+            <select class="selectpicker remove-example">
+            <option value="Mustard">1</option>
+            <option value="Ketchup">2</option>
+            <option value="Relish">3</option>
+          </td>
+
+          <td>$10000</td>
+          <td><button class="btn-borrar"><i class="fa-solid fa-trash-can"></i></button></td>  
+        </tr>
+        <tr>
+          <th scope="row">Producto 3</th>
+          <td>$10000</td>
+
+          <td>
+            <select class="selectpicker remove-example">
+            <option value="Mustard">1</option>
+            <option value="Ketchup">2</option>
+            <option value="Relish">3</option>
+          </td>
+
+          <td>$10000</td>
+          <td><button class="btn-borrar"><i class="fa-solid fa-trash-can"></i></button></td>  
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="../html/productos.html"><button class="btn-continuar-comprando"><i class="fa-solid fa-arrow-left-long"></i> Continuar Comprando</button></a>
+    <a href="../html/inicioSesion.html"><button class="btn-comprar">Comprar</button></a>
+</div>
+{% endblock %}
