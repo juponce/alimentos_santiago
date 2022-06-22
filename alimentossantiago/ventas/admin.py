@@ -17,11 +17,11 @@ class ProductoPublicoAdmin(admin.ModelAdmin):
 
 
 class ItemsPedidoAdmin(admin.ModelAdmin):
-    readonly_fields = ('fechaCreacion', 'fechaModificacion')
+    readonly_fields = ('fechaCreacion',)
 
 
 class DetallePedidoAdmin(admin.ModelAdmin):
-    readonly_fields = ('fechaCreacion', 'fechaModificacion', 'total')
+    readonly_fields = ('fechaCreacion',)
 
 
 admin.site.register(Carrito, CarritoAdmin)

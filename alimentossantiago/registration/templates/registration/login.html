@@ -30,10 +30,14 @@
                 </div>
                 <button type="submit" class="button2">Iniciar Sesion</button>
                 {% if form.non_field_errors %}
-                    <p class="error">Usuario o contraña incorrectos, vuelva a intentarlo</p>
+                    <div class="alert alert-primary mt-3 alert-success" role="alert">
+                        Usuario o contraña incorrectos, vuelva a intentarlo.
+                    </div>
                 {% endif %}
                 {% if 'register' in request.GET %}
-                    <p class="exito">Usuario registrado correctamente</p>
+                    <div class="alert alert-primary mt-3 alert-success" role="alert">
+                        Usuario registrado correctamente!
+                    </div>
                 {% endif %}
                 </form>
                 <!--Fin Formulario-->

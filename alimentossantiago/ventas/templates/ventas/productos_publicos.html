@@ -58,7 +58,12 @@
                             <!-- <p1>Categoria: {{ i.categoria }}</p1> -->
                             <p1>Precio: ${{ i.precio }}</p1>
                             <form style="display: none"></form>
-                            <button type="submit" class="button2">
+                            <button
+                                data-product="{{ i.idProducto }}"
+                                data-action="add"
+                                type="submit"
+                                class="button2 actualizar-carrito"
+                            >
                                 Agregar
                             </button>
                         </div>

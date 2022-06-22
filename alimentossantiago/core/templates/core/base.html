@@ -21,7 +21,7 @@
                     class="text-light text-decoration-none"
                     href="{% url 'home' %}"
                 >
-                    Perfil</a
+                    {{user.username}}</a
                 >/
                 <a
                     class="text-light text-decoration-none"
@@ -59,9 +59,12 @@
                 </div>
 
                 <div class="navBarSup3">
-                    <a href="#" class="text-light d-flex text-decoration-none">
+                    <a
+                        href="{% url 'carrito' %}"
+                        class="text-light d-flex text-decoration-none"
+                    >
                         <i class="fa-solid fa-cart-shopping"></i>
-                        Carrito $0
+                        Carrito
                     </a>
                 </div>
             </div>
@@ -121,8 +124,40 @@
             <i class="fa-solid fa-copyright"></i>
             <h5>Alimentos Santiago</h5>
         </footer>
+
+        <script type="text/javascript">
+            var user = '{{request.user}}';
+        </script>
+
+        <script type="text/javascript">
+            var user = '{{request.user}}';
+
+            function getToken(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (
+                            cookie.substring(0, name.length + 1) ===
+                            name + '='
+                        ) {
+                            cookieValue = decodeURIComponent(
+                                cookie.substring(name.length + 1)
+                            );
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getToken('csrftoken');
+        </script>
+
         <script src="{% static 'core/js/fontawsome.js' %}"></script>
         <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'core/js/script.js' %}"></script>
+        <script src="{% static 'core/js/carrito.js' %}"></script>
     </body>
 </html>

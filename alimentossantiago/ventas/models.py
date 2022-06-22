@@ -82,18 +82,26 @@ class ItemCarrito(models.Model):
 
 class DetallePedido(models.Model):
     idDetallePedido = models.AutoField(primary_key=True)
-    total = models.ImageField(verbose_name='Total pedido')
     fechaCreacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
-    fechaModificacion = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)
+    
+    @property
+    def get_total_cart(self):
+        itemspedido = self.itemspedido_set.all()
+        total = sum([item.get_total for item in itemspedido])
+        return total
+
 
 
 class ItemsPedido(models.Model):
     idItemsPedido = models.AutoField(primary_key=True)
+    producto = models.ForeignKey(ProductoPublico, on_delete=models.SET_NULL, null=True, blank=True)
+    cantidad = models.IntegerField(default=0, null=True, blank=True)
     fechaCreacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
-    fechaModificacion = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
-    producto = models.ForeignKey(ProductoPublico, on_delete=models.CASCADE)
-    detallePedido = models.ForeignKey(DetallePedido, on_delete=models.CASCADE)
+    detallePedido = models.ForeignKey(DetallePedido, on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Item del pedido'
@@ -101,3 +109,13 @@ class ItemsPedido(models.Model):
     
     def __str__(self):
         return self.idItemsPedido
+
+    @property
+    def get_total(self):
+        total = self.producto.precio * self.cantidad
+        return total
+
+    @property
+    def get_stock(self):
+        number_list = list(range(1,self.producto.stock+1))
+        return number_list
